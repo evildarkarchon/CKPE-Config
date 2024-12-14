@@ -40,6 +40,9 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
+  </PropertyGroup>
 
   <!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -56,5 +59,8 @@
     <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
     <PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
     <PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+    <WindowsPackageType>None</WindowsPackageType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishAot>True</PublishAot>
   </PropertyGroup>
 </Project>

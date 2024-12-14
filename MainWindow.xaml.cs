@@ -2,18 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.Storage.Pickers;
-using Windows.Storage;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -365,7 +356,7 @@ namespace CKPE_Config
                 foreach (var entry in section.Entries)
                 {
                     var widget = _widgets[(section.Name, entry.Name)];
-                    string value = widget switch
+                    var value = widget switch
                     {
                         CheckBox cb => cb.IsChecked?.ToString().ToLower() ?? "false",
                         NumberBox nb => nb.Value.ToString(),

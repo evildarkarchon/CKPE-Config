@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CKPE-Config (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "CKPE-Config (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

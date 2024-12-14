@@ -6,10 +6,57 @@
     xmlns:local="using:CKPE_Config"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Title="CKPE-Config">
+    mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Use Grid.Row=0 for both, they will be shown/hidden programmatically -->
+        <Grid x:Name="brandingGrid" 
+              Grid.Row="0">
+            <StackPanel HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Spacing="10">
+                <TextBlock Text="Creation Kit Platform Extended"
+                         FontSize="32"
+                         FontWeight="Bold"
+                         TextAlignment="Center"/>
+                <TextBlock Text="INI Configuration Editor"
+                         FontSize="24"
+                         TextAlignment="Center"/>
+                <TextBlock Text="v0.1.0"
+                         FontSize="16"
+                         TextAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <NavigationView x:Name="navigationView"
+                        Grid.Row="0"
+                        IsBackButtonVisible="Collapsed"
+                        IsSettingsVisible="False"
+                        PaneDisplayMode="Top"
+                        Visibility="Collapsed">
+            <Frame x:Name="contentFrame"/>
+        </NavigationView>
+
+        <!-- Button Panel -->
+        <StackPanel x:Name="buttonPanel"
+                    Grid.Row="1" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    Spacing="10" 
+                    Padding="10,10,10,10">
+            <Button x:Name="loadButton"
+                    Content="Load INI"
+                    Style="{StaticResource ButtonStyle}"
+                    Click="LoadIni_Click"/>
+            <Button x:Name="saveButton"
+                    Content="Save INI"
+                    Style="{StaticResource ButtonStyle}"
+                    Click="SaveIni_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>
